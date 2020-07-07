@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   res.send('WELCOME To my API!');
 });
 
-app.post('/', (req, res) => {
+app.post('/signedrequest', (req, res) => {
   let signedRequest = decode(req.body.signed_request, consumerSecret);
   let context = signedRequest.context;
   res.render('index', { context: context });
