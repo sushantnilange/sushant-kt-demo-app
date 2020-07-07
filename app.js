@@ -29,12 +29,18 @@ app.post('/signedrequest', (req, res) => {
   console.log('@@canvas request', JSON.stringify(context));
   const route = context.environment.parameters.route;
   const splitedArray = route.split('/');
-  console.log('Quote Id ', splitedArray[2]);
-  // Quote.findById
+  
+  Quote.findById(splitedArray[2], (err, quote) => {
+    if (err) {
+      return res.send(err);
+    }
+    console.log('Quote Id ', JSON.stringify(quote));
+    return res.json(quote);
+  });
   res.render('index', { context: context });
 });
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
+  // eslint-disable-next-line no-co
   console.log(`Running on port ${port}`);
 });
