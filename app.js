@@ -27,7 +27,7 @@ app.post('/signedrequest', (req, res) => {
   let signedRequest = decode(req.body.signed_request, consumerSecret);
   let context = signedRequest.context;
   console.log('@@canvas request', JSON.stringify(context));
-  const route = context.parameters.route;
+  const route = context.environment.parameters.route;
   const splitedArray = route.split('/');
   console.log('Quote Id ', splitedArray[2]);
   // Quote.findById
