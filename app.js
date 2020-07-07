@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
 app.post('/signedrequest', (req, res) => {
   let signedRequest = decode(req.body.signed_request, consumerSecret);
   let context = signedRequest.context;
+  console.log('@@canvas request', JSON.stringify(context));
   res.render('index', { context: context });
 });
 
