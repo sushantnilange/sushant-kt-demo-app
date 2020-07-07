@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
+const decode = require('salesforce-signed-request');
 
 const app = express();
 const db = mongoose.connect(process.env.MONGO_URI);
@@ -9,13 +11,22 @@ const quoteRouter = require('./routes/quoteRouter')(Quote);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.set('views', './src/views');
+app.set('view engine', 'ejs');
 
 app.use('/api', quoteRouter);
 
 const port = process.env.PORT || 3000;
+const consumerSecret = process.env.CONSUMER_SECRET;
 
 app.get('/', (req, res) => {
   res.send('WELCOME To my API!');
+});
+
+app.post('/', (req, res) => {
+  let signedRequest = decode(req.body.signed_request, consumerSecret);
+  let context = signedRequest.context;
+  res.render('index', { context: context });
 });
 
 app.listen(port, () => {
