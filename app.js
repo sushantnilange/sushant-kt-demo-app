@@ -32,6 +32,7 @@ app.post('/signedrequest', (req, res) => {
   console.log('Quote Id', splitedArray[2]);
   Quote.findById(splitedArray[2], (err, quote) => {
     if (err) {
+      console.log('I am here ', err);
       return res.send(err);
     } 
     console.log(' Mongo Quote -->', JSON.stringify(quote));
