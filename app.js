@@ -36,7 +36,7 @@ app.post('/signedrequest', (req, res) => {
       return res.send(err);
     } 
     console.log(' Mongo Quote -->', JSON.stringify(quote));
-    return res.json(quote);
+    res.render('index', { quote: quote});
   });
   //res.render('index', { context: context });
 });
