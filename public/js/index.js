@@ -1,9 +1,9 @@
 function saveQuote() {
   console.log('@@@ executing Save');
-  const quoteName = document.getElementById('name');
-  const quoteStatus = document.getElementById('status');
-  const quoteLocked = document.getElementById('locked');
-  const quotePrice = document.getElementById('number');;
+  const quoteName = document.getElementById('name').value;
+  const quoteStatus = document.getElementById('status').value;
+  const quoteLocked = document.getElementById('locked').value;
+  const quotePrice = document.getElementById('number').value;
 
   const quoteToSave = {name: quoteName,
                        status:quoteStatus,
