@@ -11,8 +11,17 @@
     <p>
       <label for="name">Quote Name</label>
       <input type="text" id="name" name="name" value="<%= quote.name%>">
-      <label for="name">Quote Status</label>
+      <br/>
+      <label for="description">Description</label>
+      <output name="description"><%= quote.description%></output>
+      <label for="status">Quote Status</label>
       <input type="text" id="status" name="status" value=<%= quote.status%>>
+      <br/>
+      <label for="locked">Is Locked ?</label>
+      <input type="checkbox" id="locked" name="locked" value=<%= quote.locked%>>
+      <br/>
+      <label for="price">Price </label>
+      <input type="number" id="number" name="number" value=<%= quote.price%>>
     </p>
   </div>
 </body>
