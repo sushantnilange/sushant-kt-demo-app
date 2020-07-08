@@ -9,6 +9,10 @@ const db = mongoose.connect(process.env.MONGO_URI);
 const Quote = require('./models/quoteModel');
 const quoteRouter = require('./routes/quoteRouter')(Quote);
 
+app.use(express.static(path.join(__dirname, '/public/')));
+app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
+app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
+app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('views', './src/views');
