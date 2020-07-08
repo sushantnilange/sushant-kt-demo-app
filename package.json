@@ -10,15 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@salesforce/canvas-js-sdk": "^1.41.0",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.21",
+    "bootstrap": "^4.5.0",
     "ejs": "^3.1.3",
-    "salesforce-signed-request": "0.0.1",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
-    "bootstrap": "^4.5.0"
+    "mongoose": "^5.9.21",
+    "salesforce-signed-request": "0.0.1"
   },
- 
   "engines": {
     "node": "10.x"
   }
