@@ -15,7 +15,7 @@ function saveQuote() {
 
 function publishCanvasEvent (name, payload) {
   console.log('@ Publishing event ', payload);
-  sfdc.canvas.controller.publish({
+  Sfdc.canvas.controller.publish({
     name: name ,
     payload: payload
   })
