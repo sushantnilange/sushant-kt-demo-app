@@ -1,0 +1,11 @@
+{
+  "name": "Demo KT App",
+  "description": "A simple app demo salesforce canvas integration",
+  "repository": "https://github.com/sushantnilange/sushant-kt-demo-app",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "static"],
+  "env": {
+    "MONGO_URI": "",
+    "CONSUMER_SECRET": ""
+  }
+}
