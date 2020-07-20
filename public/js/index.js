@@ -4,11 +4,13 @@ function saveQuote() {
   const quoteStatus = document.getElementById('status').value;
   const quoteLocked = document.getElementById('locked').value;
   const quotePrice = document.getElementById('number').value;
+  const quoteId = document.getElementById('numbquoteIder').value;
 
   const quoteToSave = {name: quoteName,
                        status:quoteStatus,
                        locked:quoteLocked,
-                       price:quotePrice};
+                       price:quotePrice,
+                       quoteId:quoteId};
   publishCanvasEvent('Canvas.quoteSave', quoteToSave);
   
 }
