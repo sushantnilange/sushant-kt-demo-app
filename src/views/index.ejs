@@ -39,7 +39,7 @@
   <script src="js/canvas-all.js"></script>
   <script src="js/index.js"></script>
   <script type="text/javascript">
-    Sfdc.canvas.onReady(function () {
+    Sfdc.canvas.onReady(function (data) {
       if (data.status === 200) {
         var signedRequest = JSON.parse(Sfdc.canvas.decode(data.payload.response.split('.')[1]));
         console.log("External Canvas application recieved signed request");
