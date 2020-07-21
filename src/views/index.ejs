@@ -56,13 +56,13 @@
                          status:quoteStatus,
                          locked:quoteLocked,
                          price:quotePrice,
-                         quoteId:quoteId};
-            });
-            var saveEvent = { name: "Canvas.quoteSave", 
-                              payload: quoteToSave };
+                         quoteId:quoteId };
             
+            var saveEvent = { name: "Canvas.quoteSave", 
+            payload: quoteToSave };
             console.log('@@ publishing Save Event', saveEvent);
             Sfdc.canvas.client.publish(signedRequest.client, saveEvent);
+          });
         }
       }); 
     });
