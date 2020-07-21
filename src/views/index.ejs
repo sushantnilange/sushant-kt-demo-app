@@ -39,29 +39,32 @@
   <script src="js/canvas-all.js"></script>
   <script src="js/index.js"></script>
   <script type="text/javascript">
-    Sfdc.canvas.onReady(function (data) {
-      if (data.status === 200) {
-        var signedRequest = JSON.parse(Sfdc.canvas.decode(data.payload.response.split('.')[1]));
-        console.log("External Canvas application recieved signed request");
-        $("#saveBtn").click(function () {
-          const quoteName = document.getElementById('name').value;
-          const quoteStatus = document.getElementById('status').value;
-          const quoteLocked = document.getElementById('locked').value;
-          const quotePrice = document.getElementById('number').value;
-          const quoteId = document.getElementById('quoteId').value;
+    Sfdc.canvas.onReady(function () {
 
-          const quoteToSave = {name: quoteName,
-                       status:quoteStatus,
-                       locked:quoteLocked,
-                       price:quotePrice,
-                       quoteId:quoteId};
-          });
-          var saveEvent = { name: "Canvas.quoteSave", 
-                            payload: quoteToSave };
-          
-          console.log('@@ publishing Save Event', saveEvent);
-          Sfdc.canvas.client.publish(signedRequest.client, saveEvent);
-      }
+      Sfdc.canvas.client.refreshSignedRequest(function(data) {
+        if (data.status === 200) {
+          var signedRequest = JSON.parse(Sfdc.canvas.decode(data.payload.response.split('.')[1]));
+          console.log("External Canvas application recieved signed request");
+          $("#saveBtn").click(function () {
+            const quoteName = document.getElementById('name').value;
+            const quoteStatus = document.getElementById('status').value;
+            const quoteLocked = document.getElementById('locked').value;
+            const quotePrice = document.getElementById('number').value;
+            const quoteId = document.getElementById('quoteId').value;
+  
+            const quoteToSave = {name: quoteName,
+                         status:quoteStatus,
+                         locked:quoteLocked,
+                         price:quotePrice,
+                         quoteId:quoteId};
+            });
+            var saveEvent = { name: "Canvas.quoteSave", 
+                              payload: quoteToSave };
+            
+            console.log('@@ publishing Save Event', saveEvent);
+            Sfdc.canvas.client.publish(signedRequest.client, saveEvent);
+        }
+      }); 
     });
   </script>
 </body>
