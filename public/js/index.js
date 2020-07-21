@@ -11,7 +11,7 @@ function saveQuote() {
                        locked:quoteLocked,
                        price:quotePrice,
                        quoteId:quoteId};
-  publishCanvasEvent('Canvas.quoteSave', quoteToSave);
+  publishCanvasEvent('kt_demo_app.quoteSave', quoteToSave);
   
 }
 
@@ -20,5 +20,5 @@ function publishCanvasEvent (name, payload) {
   Sfdc.canvas.client.publish({
     name: name ,
     payload: payload
-  })
+  });
 }
