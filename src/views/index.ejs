@@ -58,7 +58,7 @@
                          price:quotePrice,
                          quoteId:quoteId };
             
-            var saveEvent = { name: "Canvas.quoteSave", 
+            var saveEvent = { name: "kt_demo_app.quoteSave", 
             payload: quoteToSave };
             console.log('@@ publishing Save Event', saveEvent);
             Sfdc.canvas.client.publish(signedRequest.client, saveEvent);
